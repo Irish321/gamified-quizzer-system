@@ -1,0 +1,10 @@
+<div class="nav">
+    <%= link "Home", to: Routes.page_path(@conn, :index) %> |
+    <%= if @conn.assigns.current_user do %>
+   
+    <%= link "Log out", to: Routes.session_path(@conn, :delete), method: :delete, data: [confirm: "Are you sure?"] %>
+    <% else %>
+    <%= link "Log in", to: Routes.session_path(@conn, :new) %> |
+    <%= link "Create Account", to: Routes.user_page_path(@conn, :new) %>
+    <% end %>
+  </div>
